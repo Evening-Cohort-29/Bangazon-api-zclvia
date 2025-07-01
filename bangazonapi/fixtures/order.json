@@ -1,0 +1,92 @@
+[
+    {
+        "pk": 1,
+        "model": "bangazonapi.order",
+        "fields": {
+            "customer_id": 5,
+            "created_date": "2019-08-16",
+            "payment_type_id": 1
+        }
+    },
+    {
+        "pk": 2,
+        "model": "bangazonapi.order",
+        "fields": {
+            "customer_id": 7,
+            "created_date": "2019-04-12",
+            "payment_type_id": null
+        }
+    },
+    {
+        "pk": 3,
+        "model": "bangazonapi.order",
+        "fields": {
+            "customer_id": 5,
+            "created_date": "2019-03-26",
+            "payment_type_id": 1
+        }
+    },
+    {
+        "pk": 4,
+        "model": "bangazonapi.order",
+        "fields": {
+            "customer_id": 6,
+            "created_date": "2019-01-16",
+            "payment_type_id": 2
+        }
+    },
+    {
+        "pk": 5,
+        "model": "bangazonapi.order",
+        "fields": {
+            "customer_id": 6,
+            "created_date": "2019-05-22",
+            "payment_type_id": 2
+        }
+    },
+    {
+        "pk": 6,
+        "model": "bangazonapi.order",
+        "fields": {
+            "customer_id": 5,
+            "created_date": "2019-07-01",
+            "payment_type_id": 1
+        }
+    },
+    {
+        "pk": 7,
+        "model": "bangazonapi.order",
+        "fields": {
+            "customer_id": 6,
+            "created_date": "2019-05-27",
+            "payment_type_id": 2
+        }
+    },
+    {
+        "pk": 8,
+        "model": "bangazonapi.order",
+        "fields": {
+            "customer_id": 5,
+            "created_date": "2019-03-14",
+            "payment_type_id": null
+        }
+    },
+    {
+        "pk": 9,
+        "model": "bangazonapi.order",
+        "fields": {
+            "customer_id": 6,
+            "created_date": "2018-12-08",
+            "payment_type_id": null
+        }
+    },
+    {
+        "pk": 10,
+        "model": "bangazonapi.order",
+        "fields": {
+            "customer_id": 4,
+            "created_date": "2018-11-03",
+            "payment_type_id": null
+        }
+    }
+]

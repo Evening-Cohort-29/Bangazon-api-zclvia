@@ -1,0 +1,2402 @@
+[
+    {
+        "model": "bangazonapi.product",
+        "pk": 1,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "Seoul",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 2,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Paris",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 3,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "Seoul",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 4,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Paris",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 5,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "Seoul",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 6,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Vienna",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 7,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "Seoul",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 8,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Vienna",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 9,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "Seoul",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 10,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Vienna",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 11,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "New York",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 12,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Vienna",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 13,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "New York",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 14,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Vienna",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 15,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "New York",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 16,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Vienna",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 17,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "New York",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 18,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Vienna",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 19,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "New York",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 20,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Paris",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 21,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "New York",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 22,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Paris",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 23,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "New York",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 24,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Paris",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 25,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "New York",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 26,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Paris",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 27,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "New York",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 28,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Paris",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 29,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "New York",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 30,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Paris",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 31,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "New York",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 32,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Moscow",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 33,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "New York",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 34,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Berlin",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 35,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "New York",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 36,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Berlin",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 37,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "New York",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 38,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Berlin",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 39,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "New York",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 40,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Berlin",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 41,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "New York",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 42,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Berlin",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 43,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "Toronto",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 44,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Berlin",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 45,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "Toronto",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 46,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Berlin",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 47,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "Toronto",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 48,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Berlin",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 49,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "Toronto",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 50,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Berlin",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 51,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "London",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 52,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Berlin",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 53,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "London",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 54,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Berlin",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 55,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "London",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 56,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Berlin",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 57,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "London",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 58,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Berlin",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 59,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "London",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 60,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Berlin",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 61,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "London",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 62,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Berlin",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 63,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "London",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 64,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Moscow",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 65,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "London",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 66,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Moscow",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 67,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "London",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 68,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Moscow",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 69,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "London",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 70,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Moscow",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 71,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "London",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 72,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Moscow",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 73,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "London",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 74,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Moscow",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 75,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "London",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 76,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Moscow",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 77,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "London",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 78,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Moscow",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 79,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "London",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 80,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Moscow",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 81,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "London",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 82,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Moscow",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 83,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "London",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 84,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Moscow",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 85,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "London",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 86,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Moscow",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 87,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "London",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 88,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Moscow",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 89,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "London",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 90,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Moscow",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 91,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "London",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 92,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Moscow",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 93,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "London",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 94,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Moscow",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 95,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "London",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 96,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Moscow",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 97,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "London",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 98,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Moscow",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 99,
+        "fields": {
+            "name": "Optima",
+            "customer_id": 7,
+            "price": 1655.15,
+            "description": "2008 Kia",
+            "quantity": 3,
+            "created_date": "2019-05-21",
+            "category_id": 2,
+            "location": "London",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 100,
+        "fields": {
+            "name": "Golf",
+            "customer_id": 4,
+            "price": 653.59,
+            "description": "1994 Volkswagen",
+            "quantity": 4,
+            "created_date": "2019-07-10",
+            "category_id": 2,
+            "location": "Moscow",
+            "image_path": "products/vehicle.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 101,
+        "fields": {
+            "name": "Scarf",
+            "customer_id": 5,
+            "price": 199.26,
+            "description": "Woolen scarf for cold weather",
+            "quantity": 9,
+            "created_date": "2023-01-01",
+            "category_id": 5,
+            "location": "Berlin",
+            "image_path": "products/clothing.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 102,
+        "fields": {
+            "name": "Shorts",
+            "customer_id": 4,
+            "price": 139.25,
+            "description": "Athletic shorts for running",
+            "quantity": 2,
+            "created_date": "2023-01-01",
+            "category_id": 5,
+            "location": "Berlin",
+            "image_path": "products/clothing.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 103,
+        "fields": {
+            "name": "Hat",
+            "customer_id": 5,
+            "price": 65.77,
+            "description": "A stylish baseball cap",
+            "quantity": 3,
+            "created_date": "2023-01-01",
+            "category_id": 5,
+            "location": "Dubai",
+            "image_path": "products/clothing.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 104,
+        "fields": {
+            "name": "T-Shirt",
+            "customer_id": 5,
+            "price": 194.66,
+            "description": "A comfortable cotton t-shirt",
+            "quantity": 3,
+            "created_date": "2023-01-01",
+            "category_id": 5,
+            "location": "London",
+            "image_path": "products/clothing.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 105,
+        "fields": {
+            "name": "Socks",
+            "customer_id": 6,
+            "price": 125.7,
+            "description": "Pack of 5 cotton socks",
+            "quantity": 3,
+            "created_date": "2023-01-01",
+            "category_id": 5,
+            "location": "Sydney",
+            "image_path": "products/clothing.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 106,
+        "fields": {
+            "name": "Sweater",
+            "customer_id": 7,
+            "price": 191.16,
+            "description": "A warm, knitted sweater",
+            "quantity": 9,
+            "created_date": "2023-01-01",
+            "category_id": 5,
+            "location": "New York",
+            "image_path": "products/clothing.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 107,
+        "fields": {
+            "name": "Dress",
+            "customer_id": 6,
+            "price": 102.84,
+            "description": "Elegant evening dress",
+            "quantity": 2,
+            "created_date": "2023-01-01",
+            "category_id": 5,
+            "location": "Sydney",
+            "image_path": "products/clothing.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 108,
+        "fields": {
+            "name": "Socks",
+            "customer_id": 4,
+            "price": 21.01,
+            "description": "Pack of 5 cotton socks",
+            "quantity": 10,
+            "created_date": "2023-01-01",
+            "category_id": 5,
+            "location": "London",
+            "image_path": "products/clothing.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 109,
+        "fields": {
+            "name": "Jeans",
+            "customer_id": 7,
+            "price": 165.04,
+            "description": "Blue denim jeans, classic fit",
+            "quantity": 9,
+            "created_date": "2023-01-01",
+            "category_id": 5,
+            "location": "Tokyo",
+            "image_path": "products/clothing.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 110,
+        "fields": {
+            "name": "Sweater",
+            "customer_id": 5,
+            "price": 189.9,
+            "description": "A warm, knitted sweater",
+            "quantity": 3,
+            "created_date": "2023-01-01",
+            "category_id": 5,
+            "location": "Berlin",
+            "image_path": "products/clothing.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 111,
+        "fields": {
+            "name": "Shorts",
+            "customer_id": 4,
+            "price": 90.4,
+            "description": "Athletic shorts for running",
+            "quantity": 4,
+            "created_date": "2023-01-01",
+            "category_id": 5,
+            "location": "Paris",
+            "image_path": "products/clothing.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 112,
+        "fields": {
+            "name": "Socks",
+            "customer_id": 7,
+            "price": 199.08,
+            "description": "Pack of 5 cotton socks",
+            "quantity": 6,
+            "created_date": "2023-01-01",
+            "category_id": 5,
+            "location": "Dubai",
+            "image_path": "products/clothing.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 113,
+        "fields": {
+            "name": "Shorts",
+            "customer_id": 7,
+            "price": 32.99,
+            "description": "Athletic shorts for running",
+            "quantity": 4,
+            "created_date": "2023-01-01",
+            "category_id": 5,
+            "location": "London",
+            "image_path": "products/clothing.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 114,
+        "fields": {
+            "name": "Hat",
+            "customer_id": 5,
+            "price": 121.78,
+            "description": "A stylish baseball cap",
+            "quantity": 4,
+            "created_date": "2023-01-01",
+            "category_id": 5,
+            "location": "Paris",
+            "image_path": "products/clothing.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 115,
+        "fields": {
+            "name": "T-Shirt",
+            "customer_id": 5,
+            "price": 144.49,
+            "description": "A comfortable cotton t-shirt",
+            "quantity": 1,
+            "created_date": "2023-01-01",
+            "category_id": 5,
+            "location": "Paris",
+            "image_path": "products/clothing.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 116,
+        "fields": {
+            "name": "Jeans",
+            "customer_id": 6,
+            "price": 173.33,
+            "description": "Blue denim jeans, classic fit",
+            "quantity": 2,
+            "created_date": "2023-01-01",
+            "category_id": 5,
+            "location": "Paris",
+            "image_path": "products/clothing.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 117,
+        "fields": {
+            "name": "Socks",
+            "customer_id": 6,
+            "price": 50.7,
+            "description": "Pack of 5 cotton socks",
+            "quantity": 3,
+            "created_date": "2023-01-01",
+            "category_id": 5,
+            "location": "Dubai",
+            "image_path": "products/clothing.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 118,
+        "fields": {
+            "name": "Jacket",
+            "customer_id": 6,
+            "price": 163.42,
+            "description": "Water-resistant outdoor jacket",
+            "quantity": 4,
+            "created_date": "2023-01-01",
+            "category_id": 5,
+            "location": "London",
+            "image_path": "products/clothing.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 119,
+        "fields": {
+            "name": "Jeans",
+            "customer_id": 7,
+            "price": 77.32,
+            "description": "Blue denim jeans, classic fit",
+            "quantity": 7,
+            "created_date": "2023-01-01",
+            "category_id": 5,
+            "location": "Dubai",
+            "image_path": "products/clothing.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 120,
+        "fields": {
+            "name": "T-Shirt",
+            "customer_id": 4,
+            "price": 21.52,
+            "description": "A comfortable cotton t-shirt",
+            "quantity": 6,
+            "created_date": "2023-01-01",
+            "category_id": 5,
+            "location": "London",
+            "image_path": "products/clothing.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 121,
+        "fields": {
+            "name": "Jacket",
+            "customer_id": 4,
+            "price": 46.14,
+            "description": "Water-resistant outdoor jacket",
+            "quantity": 5,
+            "created_date": "2023-01-01",
+            "category_id": 5,
+            "location": "Tokyo",
+            "image_path": "products/clothing.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 122,
+        "fields": {
+            "name": "Scarf",
+            "customer_id": 5,
+            "price": 62.92,
+            "description": "Woolen scarf for cold weather",
+            "quantity": 4,
+            "created_date": "2023-01-01",
+            "category_id": 5,
+            "location": "London",
+            "image_path": "products/clothing.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 123,
+        "fields": {
+            "name": "Gloves",
+            "customer_id": 5,
+            "price": 28.6,
+            "description": "Leather gloves with touchscreen compatibility",
+            "quantity": 9,
+            "created_date": "2023-01-01",
+            "category_id": 5,
+            "location": "New York",
+            "image_path": "products/clothing.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 124,
+        "fields": {
+            "name": "Jeans",
+            "customer_id": 4,
+            "price": 41.6,
+            "description": "Blue denim jeans, classic fit",
+            "quantity": 8,
+            "created_date": "2023-01-01",
+            "category_id": 5,
+            "location": "Dubai",
+            "image_path": "products/clothing.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 125,
+        "fields": {
+            "name": "Jacket",
+            "customer_id": 7,
+            "price": 181.46,
+            "description": "Water-resistant outdoor jacket",
+            "quantity": 3,
+            "created_date": "2023-01-01",
+            "category_id": 5,
+            "location": "Moscow",
+            "image_path": "products/clothing.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 131,
+        "fields": {
+            "name": "Pliers",
+            "customer_id": 5,
+            "price": 306.81,
+            "description": "Heavy-duty pliers for gripping and bending materials",
+            "quantity": 6,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 132,
+        "fields": {
+            "name": "Level",
+            "customer_id": 5,
+            "price": 141.13,
+            "description": "A 24-inch level for ensuring straight lines and level surfaces",
+            "quantity": 4,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 133,
+        "fields": {
+            "name": "Pliers",
+            "customer_id": 4,
+            "price": 490.63,
+            "description": "Heavy-duty pliers for gripping and bending materials",
+            "quantity": 3,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 134,
+        "fields": {
+            "name": "Utility Knife",
+            "customer_id": 6,
+            "price": 524.87,
+            "description": "A sharp utility knife with replaceable blades",
+            "quantity": 3,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 135,
+        "fields": {
+            "name": "Wrench Set",
+            "customer_id": 7,
+            "price": 79.53,
+            "description": "A complete set of combination wrenches",
+            "quantity": 3,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 136,
+        "fields": {
+            "name": "Pliers",
+            "customer_id": 4,
+            "price": 547.31,
+            "description": "Heavy-duty pliers for gripping and bending materials",
+            "quantity": 5,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 137,
+        "fields": {
+            "name": "Utility Knife",
+            "customer_id": 5,
+            "price": 424.57,
+            "description": "A sharp utility knife with replaceable blades",
+            "quantity": 2,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 138,
+        "fields": {
+            "name": "Electric Drill",
+            "customer_id": 6,
+            "price": 63.19,
+            "description": "A powerful electric drill with variable speed control",
+            "quantity": 3,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 139,
+        "fields": {
+            "name": "Wrench Set",
+            "customer_id": 4,
+            "price": 352.65,
+            "description": "A complete set of combination wrenches",
+            "quantity": 2,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 140,
+        "fields": {
+            "name": "Screwdriver Set",
+            "customer_id": 7,
+            "price": 414.84,
+            "description": "A set of flathead and Phillips head screwdrivers",
+            "quantity": 3,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 141,
+        "fields": {
+            "name": "Utility Knife",
+            "customer_id": 6,
+            "price": 541.9,
+            "description": "A sharp utility knife with replaceable blades",
+            "quantity": 10,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 142,
+        "fields": {
+            "name": "Circular Saw",
+            "customer_id": 4,
+            "price": 304.44,
+            "description": "A handheld circular saw for cutting wood",
+            "quantity": 5,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 143,
+        "fields": {
+            "name": "Circular Saw",
+            "customer_id": 5,
+            "price": 367.54,
+            "description": "A handheld circular saw for cutting wood",
+            "quantity": 5,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 144,
+        "fields": {
+            "name": "Utility Knife",
+            "customer_id": 7,
+            "price": 200.55,
+            "description": "A sharp utility knife with replaceable blades",
+            "quantity": 5,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 145,
+        "fields": {
+            "name": "Electric Drill",
+            "customer_id": 7,
+            "price": 335.56,
+            "description": "A powerful electric drill with variable speed control",
+            "quantity": 9,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 146,
+        "fields": {
+            "name": "Utility Knife",
+            "customer_id": 5,
+            "price": 413.55,
+            "description": "A sharp utility knife with replaceable blades",
+            "quantity": 3,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 147,
+        "fields": {
+            "name": "Hammer",
+            "customer_id": 5,
+            "price": 139.38,
+            "description": "A durable steel hammer for carpentry",
+            "quantity": 2,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 148,
+        "fields": {
+            "name": "Utility Knife",
+            "customer_id": 4,
+            "price": 299.82,
+            "description": "A sharp utility knife with replaceable blades",
+            "quantity": 1,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 149,
+        "fields": {
+            "name": "Pliers",
+            "customer_id": 4,
+            "price": 388.07,
+            "description": "Heavy-duty pliers for gripping and bending materials",
+            "quantity": 6,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 140,
+        "fields": {
+            "name": "Utility Knife",
+            "customer_id": 5,
+            "price": 505.81,
+            "description": "A sharp utility knife with replaceable blades",
+            "quantity": 6,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 141,
+        "fields": {
+            "name": "Level",
+            "customer_id": 4,
+            "price": 298.37,
+            "description": "A 24-inch level for ensuring straight lines and level surfaces",
+            "quantity": 10,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 142,
+        "fields": {
+            "name": "Chisel Set",
+            "customer_id": 7,
+            "price": 169.76,
+            "description": "A set of wood chisels for carving and shaping",
+            "quantity": 4,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 143,
+        "fields": {
+            "name": "Circular Saw",
+            "customer_id": 5,
+            "price": 190.34,
+            "description": "A handheld circular saw for cutting wood",
+            "quantity": 6,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 144,
+        "fields": {
+            "name": "Wrench Set",
+            "customer_id": 5,
+            "price": 431.15,
+            "description": "A complete set of combination wrenches",
+            "quantity": 7,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 145,
+        "fields": {
+            "name": "Chisel Set",
+            "customer_id": 7,
+            "price": 200.17,
+            "description": "A set of wood chisels for carving and shaping",
+            "quantity": 5,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 146,
+        "fields": {
+            "name": "Utility Knife",
+            "customer_id": 6,
+            "price": 5.58,
+            "description": "A sharp utility knife with replaceable blades",
+            "quantity": 3,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 147,
+        "fields": {
+            "name": "Wrench Set",
+            "customer_id": 5,
+            "price": 359.47,
+            "description": "A complete set of combination wrenches",
+            "quantity": 6,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 148,
+        "fields": {
+            "name": "Wrench Set",
+            "customer_id": 5,
+            "price": 25.34,
+            "description": "A complete set of combination wrenches",
+            "quantity": 9,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 149,
+        "fields": {
+            "name": "Level",
+            "customer_id": 5,
+            "price": 5.68,
+            "description": "A 24-inch level for ensuring straight lines and level surfaces",
+            "quantity": 6,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 140,
+        "fields": {
+            "name": "Level",
+            "customer_id": 7,
+            "price": 161.68,
+            "description": "A 24-inch level for ensuring straight lines and level surfaces",
+            "quantity": 4,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 141,
+        "fields": {
+            "name": "Chisel Set",
+            "customer_id": 7,
+            "price": 107.36,
+            "description": "A set of wood chisels for carving and shaping",
+            "quantity": 10,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 142,
+        "fields": {
+            "name": "Level",
+            "customer_id": 6,
+            "price": 146.9,
+            "description": "A 24-inch level for ensuring straight lines and level surfaces",
+            "quantity": 3,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 143,
+        "fields": {
+            "name": "Level",
+            "customer_id": 5,
+            "price": 131.87,
+            "description": "A 24-inch level for ensuring straight lines and level surfaces",
+            "quantity": 10,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 144,
+        "fields": {
+            "name": "Hammer",
+            "customer_id": 5,
+            "price": 383.88,
+            "description": "A durable steel hammer for carpentry",
+            "quantity": 4,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    },
+    {
+        "model": "bangazonapi.product",
+        "pk": 145,
+        "fields": {
+            "name": "Screwdriver Set",
+            "customer_id": 7,
+            "price": 151.42,
+            "description": "A set of flathead and Phillips head screwdrivers",
+            "quantity": 6,
+            "created_date": "2023-03-14",
+            "category_id": 1,
+            "location": "Workshop",
+            "image_path": "products/tools.png"
+        }
+    }
+]

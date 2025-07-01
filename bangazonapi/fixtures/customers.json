@@ -1,0 +1,38 @@
+[
+{
+    "model": "bangazonapi.customer",
+    "pk": 4,
+    "fields": {
+        "user": 5,
+        "phone_number": "555-1212",
+        "address": "100 Infinity Way"
+    }
+},
+{
+    "model": "bangazonapi.customer",
+    "pk": 5,
+    "fields": {
+        "user": 6,
+        "phone_number": "555-1212",
+        "address": "100 Endless Way"
+    }
+},
+{
+    "model": "bangazonapi.customer",
+    "pk": 6,
+    "fields": {
+        "user": 7,
+        "phone_number": "555-1212",
+        "address": "100 Dauntless Way"
+    }
+},
+{
+    "model": "bangazonapi.customer",
+    "pk": 7,
+    "fields": {
+        "user": 8,
+        "phone_number": "555-1212",
+        "address": "100 Indefatiguable Way"
+    }
+}
+]

@@ -1,0 +1,74 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 5,
+        "fields": {
+            "password": "pbkdf2_sha256$150000$fHDURJBIASpx$trZS1MWc6YiNe5EYNBap+P+zMAwpNgNbUZH/b9bgvdw=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "steve",
+            "first_name": "Steve",
+            "last_name": "Brownlee",
+            "email": "steve@stevebrownlee.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-10-10T19:12:13.676Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 6,
+        "fields": {
+            "password": "pbkdf2_sha256$150000$fHDURJBIASpx$trZS1MWc6YiNe5EYNBap+P+zMAwpNgNbUZH/b9bgvdw=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "joe",
+            "first_name": "Joe",
+            "last_name": "Shepherd",
+            "email": "joe@joeshepherd.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-10-10T22:47:43.564Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 7,
+        "fields": {
+            "password": "pbkdf2_sha256$150000$fHDURJBIASpx$trZS1MWc6YiNe5EYNBap+P+zMAwpNgNbUZH/b9bgvdw=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "jisie",
+            "first_name": "Jisie",
+            "last_name": "David",
+            "email": "jisie@jisiedavid.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-10-10T22:48:19.899Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 8,
+        "fields": {
+            "password": "pbkdf2_sha256$150000$fHDURJBIASpx$trZS1MWc6YiNe5EYNBap+P+zMAwpNgNbUZH/b9bgvdw=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "brenda",
+            "first_name": "Brenda",
+            "last_name": "Long",
+            "email": "brenda@brendalong.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2019-10-10T22:48:53.984Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    }
+]

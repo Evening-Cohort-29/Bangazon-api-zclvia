@@ -1,0 +1,44 @@
+[
+    {
+        "model": "bangazonapi.productcategory",
+        "pk": 1,
+        "fields": {
+            "name": "Tools"
+        }
+    },
+    {
+        "model": "bangazonapi.productcategory",
+        "pk": 2,
+        "fields": {
+            "name": "Auto"
+        }
+    },
+    {
+        "model": "bangazonapi.productcategory",
+        "pk": 3,
+        "fields": {
+            "name": "Technology"
+        }
+    },
+    {
+        "model": "bangazonapi.productcategory",
+        "pk": 4,
+        "fields": {
+            "name": "Arts & Crafts"
+        }
+    },
+    {
+        "model": "bangazonapi.productcategory",
+        "pk": 5,
+        "fields": {
+            "name": "Clothes"
+        }
+    },
+    {
+        "model": "bangazonapi.productcategory",
+        "pk": 6,
+        "fields": {
+            "name": "Games/Toys"
+        }
+    }
+]
