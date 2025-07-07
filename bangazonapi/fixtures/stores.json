@@ -1,0 +1,42 @@
+[
+  {
+    "model": "bangazonapi.store",
+    "pk": 1,
+    "fields": {
+      "customer": 4,
+      "name": "Steve's Electronics Store",
+      "description": "Best electronics in Nashville!",
+      "created_date": "2025-07-05"
+    }
+  },
+  {
+    "model": "bangazonapi.store",
+    "pk": 2,
+    "fields": {
+      "customer": 5,
+      "name": "Joe's Gadget Shop",
+      "description": "Latest tech gadgets and accessories",
+      "created_date": "2025-07-05"
+    }
+  },
+  {
+    "model": "bangazonapi.store",
+    "pk": 3,
+    "fields": {
+      "customer": 6,
+      "name": "Jisie's Tech Corner",
+      "description": "Quality tech products for everyone",
+      "created_date": "2025-07-05"
+    }
+  },
+  {
+    "model": "bangazonapi.store",
+    "pk": 4,
+    "fields": {
+      "customer": 7,
+      "name": "Brenda's Electronics",
+      "description": "Affordable electronics and more",
+      "created_date": "2025-07-05"
+    }
+  }
+]
