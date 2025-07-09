@@ -89,7 +89,10 @@ class Payments(ViewSet):
         Returns only the payment types belonging to the authenticated user
         """
         # Get the customer associated with the authenticated user
-        customer = Customer.objects.get(user=request.auth.user)
+        try:
+            customer = Customer.objects.get(user=request.auth.user)
+        except Customer.DoesNotExist:
+            return Response([], status=status.HTTP_404_NOT_FOUND)
 
         # Filter payment types to only include those belonging to this customer
         payment_types = Payment.objects.filter(customer=customer)
