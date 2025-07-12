@@ -82,7 +82,8 @@ class Profile(ViewSet):
         """
         try:
             current_user = Customer.objects.get(user=request.auth.user)
-            current_user.recommends = Recommendation.objects.filter(recommender=current_user)
+            current_user.recommends = Recommendation.objects.filter(
+                recommender=current_user)
 
             serializer = ProfileSerializer(
                 current_user, many=False, context={'request': request})
@@ -96,6 +97,7 @@ class Profile(ViewSet):
         """Shopping cart manipulation"""
 
         current_user = Customer.objects.get(user=request.auth.user)
+        print(f"{current_user} is the current_user")
 
         if request.method == "DELETE":
             """
@@ -175,9 +177,11 @@ class Profile(ViewSet):
             @apiError (404) {String} message  Not found message
             """
             try:
-                open_order = Order.objects.get(
-                    customer=current_user, payment_type=None)
+                open_order = Order.objects.filter(
+                    customer=current_user, payment_type=None).order_by('-created_date').first()
+
                 line_items = OrderProduct.objects.filter(order=open_order)
+
                 line_items = LineItemSerializer(
                     line_items, many=True, context={'request': request})
 
@@ -232,13 +236,15 @@ class Profile(ViewSet):
             @apiError (404) {String} message  Not found message
             """
 
-            try:
-                open_order = Order.objects.get(customer=current_user)
-                print(open_order)
-            except Order.DoesNotExist as ex:
+        try:
+            # Try to get existing open cart
+            open_order = Order.objects.filter(
+                customer=current_user, payment_type=None).order_by('-created_date').first()
+
+            if open_order is None:
                 open_order = Order()
-                open_order.created_date = datetime.datetime.now()
                 open_order.customer = current_user
+                open_order.created_date = datetime.datetime.now().date()
                 open_order.save()
 
             line_item = OrderProduct()
@@ -252,7 +258,10 @@ class Profile(ViewSet):
 
             return Response(line_item_json.data)
 
-        return Response({}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+        except Product.DoesNotExist:
+            return Response({'message': 'Product not found'}, status=status.HTTP_404_NOT_FOUND)
+        except Exception as ex:
+            return Response({'message': str(ex)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     @action(methods=['get'], detail=False)
     def favoritesellers(self, request):

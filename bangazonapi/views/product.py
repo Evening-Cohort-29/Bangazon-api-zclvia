@@ -8,9 +8,10 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
 from rest_framework import status
-from bangazonapi.models import Product, Customer, ProductCategory
+from bangazonapi.models import Product, Customer, ProductCategory, Order, OrderProduct
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.parsers import MultiPartParser, FormParser
+from datetime import datetime
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -298,3 +299,32 @@ class Products(ViewSet):
             return Response(None, status=status.HTTP_204_NO_CONTENT)
 
         return Response(None, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+    @action(methods=['post'], detail=True, url_path='add_to_order')
+    def add_to_order(self, request, pk=None):
+        """Add this product to the user's cart"""
+        try:
+            current_user = Customer.objects.get(user=request.auth.user)
+            open_order = Order.objects.filter(
+                customer=current_user, payment_type=None
+            ).order_by('-created_date').first()
+            if open_order is None:
+                open_order = Order()
+                open_order.customer = current_user
+                open_order.created_date = datetime.now().date()
+                open_order.save()
+            line_item = OrderProduct()
+            line_item.product = Product.objects.get(pk=pk)
+            line_item.order = open_order
+            line_item.save()
+            from .profile import LineItemSerializer
+            line_item_json = LineItemSerializer(
+                line_item, many=False, context={'request': request}
+            )
+
+            return Response(line_item_json.data, status=status.HTTP_201_CREATED)
+
+        except Product.DoesNotExist:
+            return Response({'message': 'Product not found'}, status=status.HTTP_404_NOT_FOUND)
+        except Exception as ex:
+            return Response({'message': str(ex)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

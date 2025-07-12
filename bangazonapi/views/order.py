@@ -24,6 +24,7 @@ class OrderLineItemSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('id', 'product')
         depth = 1
 
+
 class OrderSerializer(serializers.HyperlinkedModelSerializer):
     """JSON serializer for customer orders"""
 
@@ -35,7 +36,8 @@ class OrderSerializer(serializers.HyperlinkedModelSerializer):
             view_name='order',
             lookup_field='id'
         )
-        fields = ('id', 'url', 'created_date', 'payment_type', 'customer', 'lineitems')
+        fields = ('id', 'url', 'created_date',
+                  'payment_type', 'customer', 'lineitems')
 
 
 class Orders(ViewSet):
@@ -104,7 +106,7 @@ class Orders(ViewSet):
         """
         customer = Customer.objects.get(user=request.auth.user)
         order = Order.objects.get(pk=pk, customer=customer)
-        order.payment_type = request.data["payment_type"]
+        order.payment_type_id = request.data["payment_type"]
         order.save()
 
         return Response({}, status=status.HTTP_204_NO_CONTENT)
@@ -150,3 +152,9 @@ class Orders(ViewSet):
             orders, many=True, context={'request': request})
 
         return Response(json_orders.data)
+
+    @action(methods=['put'], detail=True, url_path='complete')
+    def complete(self, request, pk=None):
+        """Complete the order (PUT request on the order updating the payment type)"""
+        # TODO: Add more to this for additional order completion logic
+        return self.update(request, pk)
