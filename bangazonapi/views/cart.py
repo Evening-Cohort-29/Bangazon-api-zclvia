@@ -124,10 +124,11 @@ class Cart(ViewSet):
             final = {
                 "order": serialized_order.data
             }
-            final["order"]["products"] = product_list.data
+            final["order"]["lineitems"] = product_list.data
             final["order"]["size"] = len(products_on_order)
 
         except Order.DoesNotExist as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
 
         return Response(final["order"])
+    
