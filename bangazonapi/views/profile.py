@@ -97,7 +97,6 @@ class Profile(ViewSet):
         """Shopping cart manipulation"""
 
         current_user = Customer.objects.get(user=request.auth.user)
-        print(f"{current_user} is the current_user")
 
         if request.method == "DELETE":
             """
