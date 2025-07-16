@@ -9,3 +9,4 @@ from .profile import Profile
 from .register import login_user, register_user
 from .store import Stores
 from .user import Users
+from .reports import Reports

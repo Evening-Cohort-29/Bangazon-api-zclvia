@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Orders Report</title>
+  </head>
+  <body>
+    {% if status == 'complete' %}
+    <h1>Complete Orders Report</h1>
+    {% elif status == 'incomplete' %}
+    <h1>Incomplete Orders Report</h1>
+    {% else %}
+    <h1>All Orders Report</h1>
+    {% endif %}
+    <table>
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Customer Name</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for order in orders %}
+        <tr>
+          <td>{{ order.id }}</td>
+          <td>
+            <!-- prettier-ignore -->
+            {{ order.customer.user.first_name }} 
+            {{ order.customer.user.last_name }}
+          </td>
+          <td>${{ order.total }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="5">No orders found</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
