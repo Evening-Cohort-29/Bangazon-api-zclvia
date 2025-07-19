@@ -1,5 +1,6 @@
-import json
 import datetime
+import json
+
 from rest_framework import status
 from rest_framework.test import APITestCase
 
@@ -10,18 +11,25 @@ class ProductTests(APITestCase):
         Create a new account and create sample category
         """
         url = "/register"
-        data = {"username": "steve", "password": "Admin8*", "email": "steve@stevebrownlee.com",
-                "address": "100 Infinity Way", "phone_number": "555-1212", "first_name": "Steve", "last_name": "Brownlee"}
-        response = self.client.post(url, data, format='json')
+        data = {
+            "username": "steve",
+            "password": "Admin8*",
+            "email": "steve@stevebrownlee.com",
+            "address": "100 Infinity Way",
+            "phone_number": "555-1212",
+            "first_name": "Steve",
+            "last_name": "Brownlee",
+        }
+        response = self.client.post(url, data, format="json")
         json_response = json.loads(response.content)
         self.token = json_response["token"]
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
         url = "/productcategories"
         data = {"name": "Sporting Goods"}
-        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token)
+        self.client.credentials(HTTP_AUTHORIZATION="Token " + self.token)
 
-        response = self.client.post(url, data, format='json')
+        response = self.client.post(url, data, format="json")
         json_response = json.loads(response.content)
 
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
@@ -38,10 +46,10 @@ class ProductTests(APITestCase):
             "quantity": 60,
             "description": "It flies high",
             "category_id": 1,
-            "location": "Pittsburgh"
+            "location": "Pittsburgh",
         }
-        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token)
-        response = self.client.post(url, data, format='json')
+        self.client.credentials(HTTP_AUTHORIZATION="Token " + self.token)
+        response = self.client.post(url, data, format="json")
         json_response = json.loads(response.content)
 
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
@@ -65,13 +73,13 @@ class ProductTests(APITestCase):
             "description": "It flies very high",
             "category_id": 1,
             "created_date": datetime.date.today(),
-            "location": "Pittsburgh"
+            "location": "Pittsburgh",
         }
-        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token)
-        response = self.client.put(url, data, format='json')
+        self.client.credentials(HTTP_AUTHORIZATION="Token " + self.token)
+        response = self.client.put(url, data, format="json")
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
 
-        response = self.client.get(url, data, format='json')
+        response = self.client.get(url, data, format="json")
         json_response = json.loads(response.content)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(json_response["name"], "Kite")
@@ -90,10 +98,75 @@ class ProductTests(APITestCase):
 
         url = "/products"
 
-        response = self.client.get(url, None, format='json')
+        response = self.client.get(url, None, format="json")
         json_response = json.loads(response.content)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(json_response), 3)
+
+    def test_filter_products_by_min_price(self):
+        """
+        Ensure we can filter products by minimum price.
+        """
+        # Create products with different prices
+        url = "/products"
+        self.client.credentials(HTTP_AUTHORIZATION="Token " + self.token)
+
+        # Create product with price 14.99
+        data = {
+            "name": "Cheap Kite",
+            "price": 14.99,
+            "quantity": 60,
+            "description": "Affordable kite",
+            "category_id": 1,
+            "location": "Pittsburgh",
+        }
+        response = self.client.post(url, data, format="json")
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+        # Create product with price 150.00
+        data = {
+            "name": "Expensive Kite",
+            "price": 150.00,
+            "quantity": 30,
+            "description": "Premium kite",
+            "category_id": 1,
+            "location": "Pittsburgh",
+        }
+        response = self.client.post(url, data, format="json")
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+        # Create product with price 200.00
+        data = {
+            "name": "Luxury Kite",
+            "price": 200.00,
+            "quantity": 10,
+            "description": "Top-tier kite",
+            "category_id": 1,
+            "location": "Pittsburgh",
+        }
+        response = self.client.post(url, data, format="json")
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+        # Test filtering by min_price=150
+        url = "/products?min_price=150"
+        response = self.client.get(url, None, format="json")
+        json_response = json.loads(response.content)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(
+            len(json_response), 2
+        )  # Should return 2 products (150.00 and 200.00)
+
+        # Verify all returned products have price >= 150
+        for product in json_response:
+            self.assertGreaterEqual(product["price"], 150.00)
+
+        # Test filtering by min_price=200
+        url = "/products?min_price=200"
+        response = self.client.get(url, None, format="json")
+        json_response = json.loads(response.content)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(json_response), 1)  # Should return 1 product (200.00)
+        self.assertEqual(json_response[0]["price"], 200.00)
 
     # TODO: Delete product
 
