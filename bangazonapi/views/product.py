@@ -1,31 +1,45 @@
 """View module for handling requests about products"""
-from rest_framework.decorators import action
-from bangazonapi.models.recommendation import Recommendation
+
 import base64
+from datetime import datetime
+
+from bangazonapi.models import Customer, Order, OrderProduct, Product, ProductCategory
+from bangazonapi.models.recommendation import Recommendation
 from django.core.files.base import ContentFile
 from django.http import HttpResponseServerError
-from rest_framework.viewsets import ViewSet
-from rest_framework.response import Response
-from rest_framework import serializers
-from rest_framework import status
-from bangazonapi.models import Product, Customer, ProductCategory, Order, OrderProduct
+from rest_framework import serializers, status
+from rest_framework.decorators import action
+from rest_framework.parsers import FormParser, MultiPartParser
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
-from rest_framework.parsers import MultiPartParser, FormParser
-from datetime import datetime
+from rest_framework.response import Response
+from rest_framework.viewsets import ViewSet
 
 
 class ProductSerializer(serializers.ModelSerializer):
     """JSON serializer for products"""
+
     class Meta:
         model = Product
-        fields = ('id', 'name', 'price', 'number_sold', 'description',
-                  'quantity', 'created_date', 'location', 'image_path',
-                  'average_rating', 'can_be_rated', 'category')
+        fields = (
+            "id",
+            "name",
+            "price",
+            "number_sold",
+            "description",
+            "quantity",
+            "created_date",
+            "location",
+            "image_path",
+            "average_rating",
+            "can_be_rated",
+            "category",
+        )
         depth = 1
 
 
 class Products(ViewSet):
     """Request handlers for Products in the Bangazon Platform"""
+
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
     def create(self, request):
@@ -95,22 +109,22 @@ class Products(ViewSet):
         customer = Customer.objects.get(user=request.auth.user)
         new_product.customer = customer
 
-        product_category = ProductCategory.objects.get(
-            pk=request.data["category_id"])
+        product_category = ProductCategory.objects.get(pk=request.data["category_id"])
         new_product.category = product_category
 
         if "image_path" in request.data:
-            format, imgstr = request.data["image_path"].split(';base64,')
-            ext = format.split('/')[-1]
-            data = ContentFile(base64.b64decode(
-                imgstr), name=f'{new_product.id}-{request.data["name"]}.{ext}')
+            format, imgstr = request.data["image_path"].split(";base64,")
+            ext = format.split("/")[-1]
+            data = ContentFile(
+                base64.b64decode(imgstr),
+                name=f'{new_product.id}-{request.data["name"]}.{ext}',
+            )
 
             new_product.image_path = data
 
         new_product.save()
 
-        serializer = ProductSerializer(
-            new_product, context={'request': request})
+        serializer = ProductSerializer(new_product, context={"request": request})
 
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
@@ -155,8 +169,7 @@ class Products(ViewSet):
         """
         try:
             product = Product.objects.get(pk=pk)
-            serializer = ProductSerializer(
-                product, context={'request': request})
+            serializer = ProductSerializer(product, context={"request": request})
             return Response(serializer.data)
         except Exception as ex:
             return HttpResponseServerError(ex)
@@ -186,8 +199,7 @@ class Products(ViewSet):
         customer = Customer.objects.get(user=request.auth.user)
         product.customer = customer
 
-        product_category = ProductCategory.objects.get(
-            pk=request.data["category_id"])
+        product_category = ProductCategory.objects.get(pk=request.data["category_id"])
         product.category = product_category
         product.save()
 
@@ -214,10 +226,12 @@ class Products(ViewSet):
             return Response({}, status=status.HTTP_204_NO_CONTENT)
 
         except Product.DoesNotExist as ex:
-            return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+            return Response({"message": ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
 
         except Exception as ex:
-            return Response({'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response(
+                {"message": ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
 
     def list(self, request):
         """
@@ -250,28 +264,33 @@ class Products(ViewSet):
         products = Product.objects.all()
 
         # Support filtering by category and/or quantity
-        category = self.request.query_params.get('category', None)
-        quantity = self.request.query_params.get('quantity', None)
-        order = self.request.query_params.get('order_by', None)
-        direction = self.request.query_params.get('direction', None)
-        number_sold = self.request.query_params.get('number_sold', None)
+        category = self.request.query_params.get("category", None)
+        quantity = self.request.query_params.get("quantity", None)
+        order = self.request.query_params.get("order_by", None)
+        direction = self.request.query_params.get("direction", None)
+        number_sold = self.request.query_params.get("number_sold", None)
+        min_price = self.request.query_params.get("min_price", None)
 
         if order is not None:
             order_filter = order
 
             if direction is not None:
                 if direction == "desc":
-                    order_filter = f'-{order}'
+                    order_filter = f"-{order}"
 
             products = products.order_by(order_filter)
 
         if category is not None:
             products = products.filter(category__id=category)
 
+        if min_price is not None:
+            products = products.filter(price__gte=float(min_price))
+
         if quantity is not None:
-            products = products.order_by("-created_date")[:int(quantity)]
+            products = products.order_by("-created_date")[: int(quantity)]
 
         if number_sold is not None:
+
             def sold_filter(product):
                 if product.number_sold >= int(number_sold):
                     return True
@@ -280,18 +299,18 @@ class Products(ViewSet):
             products = filter(sold_filter, products)
 
         serializer = ProductSerializer(
-            products, many=True, context={'request': request})
+            products, many=True, context={"request": request}
+        )
         return Response(serializer.data)
 
-    @action(methods=['post'], detail=True)
+    @action(methods=["post"], detail=True)
     def recommend(self, request, pk=None):
         """Recommend products to other users"""
 
         if request.method == "POST":
             rec = Recommendation()
             rec.recommender = Customer.objects.get(user=request.auth.user)
-            rec.customer = Customer.objects.get(
-                user__id=request.data["recipient"])
+            rec.customer = Customer.objects.get(user__id=request.data["recipient"])
             rec.product = Product.objects.get(pk=pk)
 
             rec.save()
@@ -300,14 +319,16 @@ class Products(ViewSet):
 
         return Response(None, status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
-    @action(methods=['post'], detail=True, url_path='add_to_order')
+    @action(methods=["post"], detail=True, url_path="add_to_order")
     def add_to_order(self, request, pk=None):
         """Add this product to the user's cart"""
         try:
             current_user = Customer.objects.get(user=request.auth.user)
-            open_order = Order.objects.filter(
-                customer=current_user, payment_type=None
-            ).order_by('-created_date').first()
+            open_order = (
+                Order.objects.filter(customer=current_user, payment_type=None)
+                .order_by("-created_date")
+                .first()
+            )
             if open_order is None:
                 open_order = Order()
                 open_order.customer = current_user
@@ -318,13 +339,18 @@ class Products(ViewSet):
             line_item.order = open_order
             line_item.save()
             from .profile import LineItemSerializer
+
             line_item_json = LineItemSerializer(
-                line_item, many=False, context={'request': request}
+                line_item, many=False, context={"request": request}
             )
 
             return Response(line_item_json.data, status=status.HTTP_201_CREATED)
 
         except Product.DoesNotExist:
-            return Response({'message': 'Product not found'}, status=status.HTTP_404_NOT_FOUND)
+            return Response(
+                {"message": "Product not found"}, status=status.HTTP_404_NOT_FOUND
+            )
         except Exception as ex:
-            return Response({'message': str(ex)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response(
+                {"message": str(ex)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
