@@ -106,7 +106,8 @@ class Products(ViewSet):
                 imgstr), name=f'{new_product.id}-{request.data["name"]}.{ext}')
 
             new_product.image_path = data
-
+            
+        new_product.full_clean()
         new_product.save()
 
         serializer = ProductSerializer(
