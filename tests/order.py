@@ -1,4 +1,5 @@
 import json
+import datetime
 from rest_framework import status
 from rest_framework.test import APITestCase
 
@@ -24,11 +25,11 @@ class OrderTests(APITestCase):
 
         # Create a product
         url = "/products"
-        data = { "name": "Kite", "price": 14.99, "quantity": 60, "description": "It flies high", "category_id": 1, "location": "Pittsburgh" }
+        data = {"name": "Kite", "price": 14.99, "quantity": 60,
+                "description": "It flies high", "category_id": 1, "location": "Pittsburgh"}
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token)
         response = self.client.post(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-
 
     def test_add_product_to_order(self):
         """
@@ -36,7 +37,7 @@ class OrderTests(APITestCase):
         """
         # Add product to order
         url = "/cart"
-        data = { "product_id": 1 }
+        data = {"product_id": 1}
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token)
         response = self.client.post(url, data, format='json')
 
@@ -53,7 +54,6 @@ class OrderTests(APITestCase):
         self.assertEqual(json_response["size"], 1)
         self.assertEqual(len(json_response["lineitems"]), 1)
 
-
     def test_remove_product_from_order(self):
         """
         Ensure we can remove a product from an order.
@@ -63,7 +63,7 @@ class OrderTests(APITestCase):
 
         # Remove product from cart
         url = "/cart/1"
-        data = { "product_id": 1 }
+        data = {"product_id": 1}
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token)
         response = self.client.delete(url, data, format='json')
 
@@ -79,6 +79,48 @@ class OrderTests(APITestCase):
         self.assertEqual(json_response["size"], 0)
         self.assertEqual(len(json_response["lineitems"]), 0)
 
-    # TODO: Complete order by adding payment type
+    def test_complete_order_by_adding_payment_type(self):
+        """
+        Ensure we can add a payment type to an order to be able to complete it
+        """
+        # Add a product to the cart
+        self.test_add_product_to_order()
+
+        # Create a payment type
+        url = "/paymenttypes"
+        data = {
+            "merchant_name": "American Express",
+            "account_number": "111-1111-1111",
+            "expiration_date": "2024-12-31",
+            "create_date": datetime.date.today()
+        }
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token)
+        response = self.client.post(url, data, format='json')
+        json_response = json.loads(response.content)
+
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(json_response["merchant_name"], "American Express")
+        self.assertEqual(json_response["account_number"], "111-1111-1111")
+        self.assertEqual(json_response["expiration_date"], "2024-12-31")
+        self.assertEqual(
+            json_response["create_date"], str(datetime.date.today()))
+
+        # Add the payment type to the order using a put request for that order
+        url = "/orders/1"
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token)
+        data = {
+            "payment_type": 1
+        }
+        response = self.client.put(url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
+        # Get request for the order confirming that payment type ID is returned
+        url = "/orders/1"
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token)
+        response = self.client.get(url, data, format='json')
+        json_response = json.loads(response.content)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(
+            json_response["payment_type"], "http://testserver/paymenttypes/1")
 
     # TODO: New line item is not added to closed order
