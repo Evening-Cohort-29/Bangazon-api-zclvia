@@ -121,7 +121,8 @@ class Products(ViewSet):
             )
 
             new_product.image_path = data
-
+            
+        new_product.full_clean()
         new_product.save()
 
         serializer = ProductSerializer(new_product, context={"request": request})
