@@ -334,7 +334,8 @@ class Products(ViewSet):
             return Response(None, status=status.HTTP_204_NO_CONTENT)
         if request.method == "DELETE":
             product = Product.objects.get(pk=pk)
-            like = Like.objects.get(product=product)
+            customer = Customer.objects.get(user=request.auth.user)
+            like = Like.objects.get(product=product, customer=customer)
             
             like.delete()
             
