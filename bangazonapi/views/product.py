@@ -3,7 +3,7 @@
 import base64
 from datetime import datetime
 
-from bangazonapi.models import Customer, Order, OrderProduct, Product, ProductCategory
+from bangazonapi.models import Customer, Order, OrderProduct, Product, ProductCategory, ProductRating
 from bangazonapi.models.recommendation import Recommendation
 from django.core.files.base import ContentFile
 from django.http import HttpResponseServerError
@@ -109,7 +109,8 @@ class Products(ViewSet):
         customer = Customer.objects.get(user=request.auth.user)
         new_product.customer = customer
 
-        product_category = ProductCategory.objects.get(pk=request.data["category_id"])
+        product_category = ProductCategory.objects.get(
+            pk=request.data["category_id"])
         new_product.category = product_category
 
         if "image_path" in request.data:
@@ -121,11 +122,12 @@ class Products(ViewSet):
             )
 
             new_product.image_path = data
-            
+
         new_product.full_clean()
         new_product.save()
 
-        serializer = ProductSerializer(new_product, context={"request": request})
+        serializer = ProductSerializer(
+            new_product, context={"request": request})
 
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
@@ -170,7 +172,8 @@ class Products(ViewSet):
         """
         try:
             product = Product.objects.get(pk=pk)
-            serializer = ProductSerializer(product, context={"request": request})
+            serializer = ProductSerializer(
+                product, context={"request": request})
             return Response(serializer.data)
         except Exception as ex:
             return HttpResponseServerError(ex)
@@ -200,7 +203,8 @@ class Products(ViewSet):
         customer = Customer.objects.get(user=request.auth.user)
         product.customer = customer
 
-        product_category = ProductCategory.objects.get(pk=request.data["category_id"])
+        product_category = ProductCategory.objects.get(
+            pk=request.data["category_id"])
         product.category = product_category
         product.save()
 
@@ -311,7 +315,8 @@ class Products(ViewSet):
         if request.method == "POST":
             rec = Recommendation()
             rec.recommender = Customer.objects.get(user=request.auth.user)
-            rec.customer = Customer.objects.get(user__id=request.data["recipient"])
+            rec.customer = Customer.objects.get(
+                user__id=request.data["recipient"])
             rec.product = Product.objects.get(pk=pk)
 
             rec.save()
@@ -319,6 +324,21 @@ class Products(ViewSet):
             return Response(None, status=status.HTTP_204_NO_CONTENT)
 
         return Response(None, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+    @action(methods=["post"], detail=True, url_path="rate-product")
+    def rate_product(self, request, pk=None):
+        """Rate a product"""
+        if request.method == "POST":
+            # Build productrating object with rating, customer_id, and product_id
+            product_rating = ProductRating()
+            product_rating.rating = request.data["score"]
+            product_rating.customer = Customer.objects.get(
+                user=request.auth.user)
+            product_rating.product = Product.objects.get(pk=pk)
+
+            product_rating.save()
+
+            return Response(None, status=status.HTTP_204_NO_CONTENT)
 
     @action(methods=["post"], detail=True, url_path="add_to_order")
     def add_to_order(self, request, pk=None):
