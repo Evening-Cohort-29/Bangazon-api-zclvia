@@ -329,7 +329,7 @@ class Products(ViewSet):
     def rate_product(self, request, pk=None):
         """Rate a product"""
         if request.method == "POST":
-            # Build productrating object with rating, customer_id, and product_id
+            # Build ProductRating object with rating, customer_id, and product_id
             product_rating = ProductRating()
             product_rating.rating = request.data["score"]
             product_rating.customer = Customer.objects.get(
