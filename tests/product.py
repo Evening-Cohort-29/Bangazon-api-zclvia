@@ -168,6 +168,81 @@ class ProductTests(APITestCase):
         self.assertEqual(len(json_response), 1)  # Should return 1 product (200.00)
         self.assertEqual(json_response[0]["price"], 200.00)
 
+    def test_filter_products_by_location(self):
+        """
+        Ensure we can filter products by location using contains search.
+        """
+        # Create products with different locations
+        url = "/products"
+        self.client.credentials(HTTP_AUTHORIZATION="Token " + self.token)
+
+        # Create product in Pittsburgh
+        data = {
+            "name": "Pittsburgh Kite",
+            "price": 25.99,
+            "quantity": 50,
+            "description": "Kite from Steel City",
+            "category_id": 1,
+            "location": "Pittsburgh, PA",
+        }
+        response = self.client.post(url, data, format="json")
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+        # Create product in New York
+        data = {
+            "name": "NYC Kite",
+            "price": 35.99,
+            "quantity": 30,
+            "description": "Big city kite",
+            "category_id": 1,
+            "location": "New York, NY",
+        }
+        response = self.client.post(url, data, format="json")
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+        # Create product in Los Angeles
+        data = {
+            "name": "LA Kite",
+            "price": 29.99,
+            "quantity": 40,
+            "description": "West coast kite",
+            "category_id": 1,
+            "location": "Los Angeles, CA",
+        }
+        response = self.client.post(url, data, format="json")
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+        # Test filtering by location containing "Pittsburgh"
+        url = "/products?location=Pittsburgh"
+        response = self.client.get(url, None, format="json")
+        json_response = json.loads(response.content)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(json_response), 1)  # Should return 1 product
+        self.assertIn("Pittsburgh", json_response[0]["location"])
+
+        # Test filtering by location containing "New York" (case insensitive)
+        url = "/products?location=new york"
+        response = self.client.get(url, None, format="json")
+        json_response = json.loads(response.content)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(json_response), 1)  # Should return 1 product
+        self.assertIn("New York", json_response[0]["location"])
+
+        # Test filtering by partial location "CA" (should get Los Angeles)
+        url = "/products?location=CA"
+        response = self.client.get(url, None, format="json")
+        json_response = json.loads(response.content)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(json_response), 1)  # Should return 1 product
+        self.assertIn("CA", json_response[0]["location"])
+
+        # Test filtering by non-existent location
+        url = "/products?location=NonExistentCity"
+        response = self.client.get(url, None, format="json")
+        json_response = json.loads(response.content)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(json_response), 0)  # Should return no products
+
     # TODO: Delete product
 
     # TODO: Product can be rated. Assert average rating exists.
