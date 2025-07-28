@@ -3,6 +3,7 @@ import json
 
 from rest_framework import status
 from rest_framework.test import APITestCase
+from bangazonapi.models import ProductRating
 
 
 class ProductTests(APITestCase):
@@ -165,7 +166,8 @@ class ProductTests(APITestCase):
         response = self.client.get(url, None, format="json")
         json_response = json.loads(response.content)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(json_response), 1)  # Should return 1 product (200.00)
+        # Should return 1 product (200.00)
+        self.assertEqual(len(json_response), 1)
         self.assertEqual(json_response[0]["price"], 200.00)
 
     def test_filter_products_by_location(self):
@@ -245,4 +247,43 @@ class ProductTests(APITestCase):
 
     # TODO: Delete product
 
-    # TODO: Product can be rated. Assert average rating exists.
+    def test_product_rating(self):
+        """
+        Ensure a product can be rated and an average rating exists
+        """
+        # Create a product
+        self.test_create_product()
+
+        # Add a rating to the product
+        url = "/products/1/rate-product"
+        first_rating = {
+            "review": "First rating",
+            "score": 4
+        }
+        self.client.credentials(HTTP_AUTHORIZATION="Token " + self.token)
+        response = self.client.post(url, first_rating, format="json")
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
+        # Confirm that a matching ProductRating object exists
+        product_ratings = ProductRating.objects.filter(id=1)
+        self.assertEqual(len(product_ratings), 1)
+        self.assertEqual(product_ratings[0].rating, 4)
+
+        # Add another rating to the same product
+        second_rating = {
+            "review": "Second rating",
+            "score": 2
+        }
+        response = self.client.post(url, second_rating, format="json")
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
+        product_ratings = ProductRating.objects.filter(id=2)
+        self.assertEqual(len(product_ratings), 1)
+        self.assertEqual(product_ratings[0].rating, 2)
+
+        # Get the product and confirm that it has an average rating and is what it should be
+        url = "/products/1"
+        response = self.client.get(url, None, format="json")
+        json_response = json.loads(response.content)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(json_response["average_rating"], 3)
