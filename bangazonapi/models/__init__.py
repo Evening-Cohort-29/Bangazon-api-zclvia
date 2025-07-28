@@ -1,5 +1,6 @@
 from .customer import Customer
 from .favorite import Favorite
+from .like import Like
 from .order import Order
 from .orderproduct import OrderProduct
 from .payment import Payment

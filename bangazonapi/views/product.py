@@ -3,7 +3,8 @@
 import base64
 from datetime import datetime
 
-from bangazonapi.models import Customer, Order, OrderProduct, Product, ProductCategory, ProductRating
+
+from bangazonapi.models import Customer, Order, OrderProduct, Product, ProductCategory, ProductRating, Like
 from bangazonapi.models.recommendation import Recommendation
 from django.core.files.base import ContentFile
 from django.http import HttpResponseServerError
@@ -328,6 +329,43 @@ class Products(ViewSet):
             return Response(None, status=status.HTTP_204_NO_CONTENT)
 
         return Response(None, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+    
+    @action(methods=["post", "delete"], detail=True, url_path="like")
+    def like_product(self, request, pk=None):
+        """Allow user to like or unlike a product"""
+        
+        if request.method == "POST":
+            like = Like()
+            like.customer = Customer.objects.get(user=request.auth.user)
+            like.product = Product.objects.get(pk=pk)
+            
+            like.save()
+            
+            return Response(None, status=status.HTTP_204_NO_CONTENT)
+        if request.method == "DELETE":
+            product = Product.objects.get(pk=pk)
+            customer = Customer.objects.get(user=request.auth.user)
+            like = Like.objects.get(product=product, customer=customer)
+            
+            like.delete()
+            
+            return Response(None, status=status.HTTP_204_NO_CONTENT)
+        
+        return Response(None, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+    
+    @action(methods=["get"], detail=False, url_path="liked")
+    def get_liked_products(self, request):
+        """View all products liked by a specific user"""
+        
+        customer = Customer.objects.get(user=request.auth.user)
+        likes = Like.objects.filter(customer=customer)
+        # get a list of product IDs from the likes queryset, use id__in to filter Products where their ID is in that list:
+        liked_products = Product.objects.filter(id__in=likes.values_list('product', flat=True))
+        
+        serializer = ProductSerializer(
+            liked_products, many=True, context={'request': request}
+        )
+        return Response(serializer.data)       
 
     @action(methods=["post"], detail=True, url_path="rate-product")
     def rate_product(self, request, pk=None):
