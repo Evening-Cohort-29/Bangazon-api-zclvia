@@ -39,7 +39,7 @@ class Product(SafeDeleteModel):
         width_field=None,
         max_length=None,
         null=True,
-        blank=True
+        blank=True,
     )
 
     @property

@@ -123,4 +123,69 @@ class OrderTests(APITestCase):
         self.assertEqual(
             json_response["payment_type"], "http://testserver/paymenttypes/1")
 
-    # TODO: New line item is not added to closed order
+    def test_add_product_to_open_order_not_closed(self):
+        """
+        Ensure that adding a product to cart creates a new open order
+        when only closed orders exist, and doesn't add to a closed order.
+        """
+        # First, create a payment type for closing an order
+        url = "/paymenttypes"
+        data = {
+            "merchant_name": "Visa",
+            "account_number": "1234567890",
+            "expiration_date": "2025-12-31",
+            "create_date": "2025-01-01"
+        }
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token)
+        response = self.client.post(url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+        # Add a product to cart (this creates an open order)
+        url = "/cart"
+        data = {"product_id": 1}
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token)
+        response = self.client.post(url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
+        # Get the current open order
+        url = "/cart"
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token)
+        response = self.client.get(url, None, format='json')
+        json_response = json.loads(response.content)
+        first_order_id = json_response["id"]
+
+        # Close the order by completing it (add payment type)
+        url = f"/orders/{first_order_id}"
+        data = {"payment_type": 1}
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token)
+        response = self.client.put(url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
+        # Now add another product to cart - this should create a NEW open order
+        url = "/cart"
+        data = {"product_id": 1}  # Adding same product again
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token)
+        response = self.client.post(url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
+        # Get the new cart - should be a different order ID
+        url = "/cart"
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token)
+        response = self.client.get(url, None, format='json')
+        json_response = json.loads(response.content)
+        second_order_id = json_response["id"]
+
+        # Verify a new order was created (different ID)
+        self.assertNotEqual(first_order_id, second_order_id)
+
+        # Verify the new order is open (payment_type is null)
+        self.assertIsNone(json_response["payment_type"])
+
+        # Verify the new order has the product
+        self.assertEqual(json_response["size"], 1)
+
+        # Additional verification: Check that we now have 2 orders total
+        from bangazonapi.models import Order, Customer
+        customer = Customer.objects.get(user__username="steve")
+        total_orders = Order.objects.filter(customer=customer).count()
+        self.assertEqual(total_orders, 2)
