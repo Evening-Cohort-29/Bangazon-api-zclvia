@@ -6,9 +6,14 @@ from .customer import Customer
 from .orderproduct import OrderProduct
 from .productcategory import ProductCategory
 from .productrating import ProductRating
+from .like import Like
 
 
 class Product(SafeDeleteModel):
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.__is_liked = False # default initialization
 
     _safedelete_policy = SOFT_DELETE
     name = models.CharField(
@@ -66,6 +71,29 @@ class Product(SafeDeleteModel):
     @can_be_rated.setter
     def can_be_rated(self, value):
         self.__can_be_rated = value
+    
+    @property
+    def is_liked(self):
+        """is_liked property, calculated per user
+        
+        Returns:
+            boolean -- If the user has liked the product or not
+        """
+        return self.__is_liked
+    
+    @is_liked.setter
+    def is_liked(self, value):
+        self.__is_liked = value
+    
+    @property
+    def likes(self):
+        """Number of likes total a product has
+        
+        Returns:
+            list -- Array of Like objects with specific fields
+        """
+        likes = Like.objects.filter(product=self)
+        return list(likes.values('id', 'customer', 'product'))  
 
     @property
     def average_rating(self):

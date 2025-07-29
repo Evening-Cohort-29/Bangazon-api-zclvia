@@ -34,6 +34,8 @@ class ProductSerializer(serializers.ModelSerializer):
             "average_rating",
             "can_be_rated",
             "category",
+            "likes",
+            "is_liked",
         )
         depth = 1
 
@@ -173,8 +175,14 @@ class Products(ViewSet):
         """
         try:
             product = Product.objects.get(pk=pk)
-            serializer = ProductSerializer(
-                product, context={"request": request})
+            # Set is_liked before serialization
+            if request.auth.user:
+                customer = Customer.objects.get(user=request.auth.user)
+                product.is_liked = Like.objects.filter(
+                    customer=customer,
+                    product=product
+                ).exists()
+            serializer = ProductSerializer(product, context={"request": request})
             return Response(serializer.data)
         except Exception as ex:
             return HttpResponseServerError(ex)
@@ -269,6 +277,15 @@ class Products(ViewSet):
         """
         products = Product.objects.all()
 
+        # Set is_liked for each product if user is authenticated
+        if request.auth.user:
+            customer = Customer.objects.get(user=request.auth.user)
+            for product in products:
+                product.is_liked = Like.objects.filter(
+                    customer=customer,
+                    product=product
+                ).exists()
+
         # Support filtering by category and/or quantity
         category = self.request.query_params.get("category", None)
         quantity = self.request.query_params.get("quantity", None)
@@ -336,9 +353,11 @@ class Products(ViewSet):
         
         if request.method == "POST":
             like = Like()
+            product = Product.objects.get(pk=pk)
             like.customer = Customer.objects.get(user=request.auth.user)
-            like.product = Product.objects.get(pk=pk)
+            like.product = product
             
+            product.is_liked = True
             like.save()
             
             return Response(None, status=status.HTTP_204_NO_CONTENT)
@@ -347,6 +366,7 @@ class Products(ViewSet):
             customer = Customer.objects.get(user=request.auth.user)
             like = Like.objects.get(product=product, customer=customer)
             
+            product.is_liked = False
             like.delete()
             
             return Response(None, status=status.HTTP_204_NO_CONTENT)
