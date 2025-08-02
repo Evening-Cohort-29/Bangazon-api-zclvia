@@ -176,8 +176,12 @@ class Products(ViewSet):
             serializer = ProductSerializer(
                 product, context={"request": request})
             return Response(serializer.data)
+        except Product.DoesNotExist as ex:
+            return Response({"message": ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
         except Exception as ex:
-            return HttpResponseServerError(ex)
+            return Response(
+                {"message": ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
 
     def update(self, request, pk=None):
         """

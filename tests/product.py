@@ -245,7 +245,43 @@ class ProductTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(json_response), 0)  # Should return no products
 
-    # TODO: Delete product
+    def test_delete_product(self):
+        """
+        Ensure we can delete a product and it's no longer accessible to users.
+        """
+        # First, create a product to delete
+        self.test_create_product()
+
+        # Verify the product exists by getting it
+        url = "/products/1"
+        self.client.credentials(HTTP_AUTHORIZATION="Token " + self.token)
+        response = self.client.get(url, None, format="json")
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        # Verify the product appears in the products list
+        url = "/products"
+        response = self.client.get(url, None, format="json")
+        json_response = json.loads(response.content)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(json_response), 1)  # Should have 1 product
+
+        # Now delete the product
+        url = "/products/1"
+        self.client.credentials(HTTP_AUTHORIZATION="Token " + self.token)
+        response = self.client.delete(url, None, format="json")
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
+        # Verify the product no longer exists by trying to get it (should return 404)
+        url = "/products/1"
+        response = self.client.get(url, None, format="json")
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+        # Verify the product is no longer in the products list
+        url = "/products"
+        response = self.client.get(url, None, format="json")
+        json_response = json.loads(response.content)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(json_response), 0)  # Should have 0 products
 
     def test_product_rating(self):
         """
