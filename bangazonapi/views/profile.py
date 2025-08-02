@@ -9,7 +9,7 @@ from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet
 from bangazonapi.models import Order, Customer, Product
 from bangazonapi.models import OrderProduct, Favorite
-from bangazonapi.models import Recommendation
+from bangazonapi.models import Recommendation, Like
 from .product import ProductSerializer
 from .order import OrderSerializer
 
@@ -84,6 +84,7 @@ class Profile(ViewSet):
             current_user = Customer.objects.get(user=request.auth.user)
             current_user.recommends = Recommendation.objects.filter(
                 recommender=current_user)
+            current_user.likes = Like.objects.filter(customer=current_user)
 
             serializer = ProfileSerializer(
                 current_user, many=False, context={'request': request})
@@ -357,7 +358,7 @@ class ProfileProductSerializer(serializers.ModelSerializer):
     """JSON serializer for products"""
     class Meta:
         model = Product
-        fields = ('id', 'name',)
+        fields = ('id', 'name', 'price')
 
 
 class RecommenderSerializer(serializers.ModelSerializer):
@@ -369,6 +370,15 @@ class RecommenderSerializer(serializers.ModelSerializer):
         model = Recommendation
         fields = ('product', 'customer',)
 
+class LikeSerializer(serializers.ModelSerializer):
+    """JSON serializer for likes"""
+    customer = CustomerSerializer()
+    product = ProfileProductSerializer()
+    
+    class Meta:
+        model = Like
+        fields = ('product', 'customer')
+
 
 class ProfileSerializer(serializers.ModelSerializer):
     """JSON serializer for customer profile
@@ -378,11 +388,12 @@ class ProfileSerializer(serializers.ModelSerializer):
     """
     user = UserSerializer(many=False)
     recommends = RecommenderSerializer(many=True)
+    likes = LikeSerializer(many=True)
 
     class Meta:
         model = Customer
         fields = ('id', 'url', 'user', 'phone_number',
-                  'address', 'payment_types', 'recommends',)
+                  'address', 'payment_types', 'recommends', 'likes')
         depth = 1
 
 
