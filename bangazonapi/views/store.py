@@ -81,15 +81,48 @@ class Stores(ViewSet):
                     status=status.HTTP_400_BAD_REQUEST,
                 )
 
+            # Validate required fields
+            name = request.data.get("name", "").strip()
+            description = request.data.get("description", "").strip()
+
+            if not name:
+                return Response(
+                    {"message": "Store name is required"},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+
+            if not description:
+                return Response(
+                    {"message": "Store description is required"},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+
+            # Check for duplicate store names (optional business rule)
+            if Store.objects.filter(name__iexact=name).exists():
+                return Response(
+                    {"message": "A store with this name already exists"},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+
             new_store = Store()
             new_store.customer = customer
-            new_store.name = request.data["name"]
-            new_store.description = request.data["description"]
+            new_store.name = name
+            new_store.description = description
             new_store.save()
 
             serializer = StoreSerializer(new_store, context={"request": request})
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
+        except Customer.DoesNotExist:
+            return Response(
+                {"message": "Customer profile not found"},
+                status=status.HTTP_404_NOT_FOUND,
+            )
+        except KeyError as ex:
+            return Response(
+                {"message": f"Missing required field: {ex}"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
         except Exception as ex:
             return HttpResponseServerError(ex)
 
